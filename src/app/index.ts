@@ -20,8 +20,8 @@ const configRoutes = () => {
     res.sendStatus(200);
   });
 
-  app.get("/ping", (_req, res) => {
-    res.send("pong");
+  app.get("/ping2", (_req, res) => {
+    res.send("pong2");
   });
 
   app.get("/who", (req, res) => {
