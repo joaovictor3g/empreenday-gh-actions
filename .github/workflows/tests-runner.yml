@@ -1,0 +1,26 @@
+name: "Tests Runner"
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+jobs:
+  tests_runner:
+    runs-on: ubuntu-latest
+    environment:
+      url: ""
+      name: test
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      - name: install dependencies
+        run: yarn --frozen-lockfile --silent
+
+      - name: run tests
+        run: yarn test
